@@ -9,7 +9,7 @@ entity CustomerInfo
     Name : String(100) not null
         @Core.Description : 'Customer Name';
     SYSID : String(3) not null
-        @Core.Description : 'System ID';
+        @Core.Description : 'SAP System ID';
     Installation : Integer not null
         @Core.Description : 'Installation Number';
     Service : String(60) not null
