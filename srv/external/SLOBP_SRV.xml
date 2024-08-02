@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="SLO.BP_SRV" xml:lang="en" sap:schema-version="1"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0"
+                xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+                <EntityType Name="SCOPEOBJECT" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeObjectGuid"/>
+                    </Key>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeObjectID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Scope Object ID" sap:updatable="false" sap:filterable="false"/>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="TextComment" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Text Comment" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Inactive" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Inactive" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LivetimeStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Livetime Status" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Responsibility" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Responsibility" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LoadMethod" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Load Method" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CHDATE" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toLOADMETHOD" Relationship="SLO.BP_SRV.SCOPEOBJECTToLOADMETHOD" FromRole="FromRole_SCOPEOBJECTToLOADMETHOD" ToRole="ToRole_SCOPEOBJECTToLOADMETHOD"/>
+                    <NavigationProperty Name="toSCOPEITEMASSIGN" Relationship="SLO.BP_SRV.SCOPEOBJECTToSCOPEITEMASSIGN" FromRole="FromRole_SCOPEOBJECTToSCOPEITEMASSIGN" ToRole="ToRole_SCOPEOBJECTToSCOPEITEMASSIGN"/>
+                </EntityType>
+                <EntityType Name="LIST" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ListGuid"/>
+                    </Key>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="ListGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListName" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="List Name" sap:updatable="false" sap:sortable="false"/>
+                    <Property Name="RollName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Data element" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="List Type" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="MappingCardinality" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Mapping Cardinality" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:sortable="false"/>
+                    <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CHDATE" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="FilterCriteria" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Filter Criteria" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toLISTLINE" Relationship="SLO.BP_SRV.LISTToLISTLINE" FromRole="FromRole_LISTToLISTLINE" ToRole="ToRole_LISTToLISTLINE"/>
+                </EntityType>
+                <EntityType Name="SELECTRULES" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SelRuleID"/>
+                    </Key>
+                    <Property Name="SelRuleID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Selection Rules ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SelRuleLevel" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Rule Level" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toSELRULESDETAIL" Relationship="SLO.BP_SRV.SELREULESToSELRULESDETAIL" FromRole="FromRole_SELREULESToSELRULESDETAIL" ToRole="ToRole_SELREULESToSELRULESDETAIL"/>
+                </EntityType>
+                <EntityType Name="SELECTRULESDETAIL" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="SelRuleID"/>
+                    </Key>
+                    <Property Name="SelRuleID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Selection Rules ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="LOADMETHOD" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="LoadMethod"/>
+                    </Key>
+                    <Property Name="LoadMethod" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Load Method" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCOPEOBJLOADMETHOD" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeObjectGuid"/>
+                    </Key>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LoadMethod" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Load Method" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCANFORMAT" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScanGuid"/>
+                    </Key>
+                    <Property Name="ScanGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Field Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="DataType" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Data Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCOPEITEMASSLIST" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeItemGuid"/>
+                        <PropertyRef Name="ListGuid"/>
+                    </Key>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListName" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="List Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="LISTLINE" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ListGuid"/>
+                        <PropertyRef Name="LineNumber"/>
+                    </Key>
+                    <Property Name="ListGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LineNumber" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Line Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ValueOld" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value Old" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ValueNew" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value New" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="OBJECT" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ObjectGuid"/>
+                    </Key>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ObjectID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Visibility" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Visibility" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Inactive" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Inactive" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="NodeKey" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Tree Control: Node Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CHDATE" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toSCOPEITEM" Relationship="SLO.BP_SRV.OBJECTToSCOPEITEM" FromRole="FromRole_OBJECTToSCOPEITEM" ToRole="ToRole_OBJECTToSCOPEITEM"/>
+                    <NavigationProperty Name="toOBJECTTABLE" Relationship="SLO.BP_SRV.OBJECTToOBJECTTABLE" FromRole="FromRole_OBJECTToOBJECTTABLE" ToRole="ToRole_OBJECTToOBJECTTABLE"/>
+                    <NavigationProperty Name="toSCANRUN" Relationship="SLO.BP_SRV.OBJECTToSCANRUN" FromRole="FromRole_OBJECTToSCANRUN" ToRole="ToRole_OBJECTToSCANRUN"/>
+                    <NavigationProperty Name="toSCOPEOBJECT" Relationship="SLO.BP_SRV.OBJECTToSCOPEOBJECT" FromRole="FromRole_OBJECTToSCOPEOBJECT" ToRole="ToRole_OBJECTToSCOPEOBJECT"/>
+                </EntityType>
+                <EntityType Name="PROJECT" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ProjectGuid"/>
+                    </Key>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectID" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Project ID" sap:updatable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:filterable="false"/>
+                    <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CustomerName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Customer Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CHDATE" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on"/>
+                    <NavigationProperty Name="toNODE" Relationship="SLO.BP_SRV.PROJECTToNODE" FromRole="FromRole_PROJECTToNODE" ToRole="ToRole_PROJECTToNODE"/>
+                    <NavigationProperty Name="toLIST" Relationship="SLO.BP_SRV.PROJECTToLIST" FromRole="FromRole_PROJECTToLIST" ToRole="ToRole_PROJECTToLIST"/>
+                    <NavigationProperty Name="toOBJECT" Relationship="SLO.BP_SRV.PROJECTToOBJECT" FromRole="FromRole_PROJECTToOBJECT" ToRole="ToRole_PROJECTToOBJECT"/>
+                </EntityType>
+                <EntityType Name="SCOPEITEM" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeItemGuid"/>
+                    </Key>
+                    <Property Name="ScopeItemGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Scope Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Scope Item Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="BasicDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="BasicLongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Visibility" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Visibility" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toSCOPEITEMLIST" Relationship="SLO.BP_SRV.SCOPEITEMToSCOPEITEMLIST" FromRole="FromRole_SCOPEITEMToSCOPEITEMLIST" ToRole="ToRole_SCOPEITEMToSCOPEITEMLIST"/>
+                </EntityType>
+                <EntityType Name="NODE" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ID"/>
+                    </Key>
+                    <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="12" sap:hierarchy-node-for="ID" sap:unicode="false" sap:label="Tree Control: Node Key" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:updatable="false"/>
+                    <Property Name="ParentID" Type="Edm.String" Nullable="false" MaxLength="12" sap:hierarchy-parent-node-for="ID" sap:unicode="false" sap:label="Tree Control: Node Key" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="TreeLevel" Type="Edm.String" Nullable="false" MaxLength="2" sap:hierarchy-level-for="ID" sap:unicode="false" sap:label="Level" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="DrillDownState" Type="Edm.String" Nullable="false" MaxLength="8" sap:hierarchy-drill-state-for="ID" sap:unicode="false" sap:label="Drill Down State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ObjectType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Object Type" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Guid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Position" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="POSITION" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LivetimeStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Livetime Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Visibility" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Visibility" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Inactive" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Inactive" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toObject" Relationship="SLO.BP_SRV.NODEToOBJECT" FromRole="FromRole_NODEToOBJECT" ToRole="ToRole_NODEToOBJECT"/>
+                    <NavigationProperty Name="toObjectDetail" Relationship="SLO.BP_SRV.NODEToOBJECTDETAIL" FromRole="FromRole_NODEToOBJECTDETAIL" ToRole="ToRole_NODEToOBJECTDETAIL"/>
+                </EntityType>
+                <EntityType Name="OBJECTTABLE" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ObjectGuid"/>
+                        <PropertyRef Name="Tabname"/>
+                    </Key>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Tabname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Table Name" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="TableType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Table Type" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Project Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="OBJECTTABTYPE" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="TableType"/>
+                    </Key>
+                    <Property Name="TableType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Object table type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCOPEITEMLIST" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeItemGuid"/>
+                        <PropertyRef Name="ListGuid"/>
+                    </Key>
+                    <Property Name="ScopeItemGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ListName" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="List Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCANRUN" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScanRunGuid"/>
+                    </Key>
+                    <Property Name="ScanRunGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScanRunID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Scan Run ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Text" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SystemID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="SAP System ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SysIDClient" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="System Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="RunDateTime" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Date Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CustNumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScanName" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Scan Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScanGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="FilterCriteria" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Filter Criteria" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="FilterCriteriaID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Filter Criteria ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toSCANRESULT" Relationship="SLO.BP_SRV.SCANRUNToSCANRESULT" FromRole="FromRole_SCANRUNToSCANRESULT" ToRole="ToRole_SCANRUNToSCANRESULT"/>
+                </EntityType>
+                <EntityType Name="SCANRESULT" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScanRunGuid"/>
+                        <PropertyRef Name="Field1"/>
+                        <PropertyRef Name="Field2"/>
+                        <PropertyRef Name="Field3"/>
+                    </Key>
+                    <Property Name="ScanRunGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field1" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field2" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field3" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field4" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field5" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field6" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Field7" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Counter" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Count" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScanGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="OBJECTSCAN" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ObjectGuid"/>
+                        <PropertyRef Name="ScanGuid"/>
+                    </Key>
+                    <Property Name="ObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScanGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="SortOrder" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Blueprint Sort Order" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCOPEOBJECTACTIVE" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeObjectGuid"/>
+                    </Key>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Scope Item Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Active" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <EntityType Name="SCOPEITEMASSIGN" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="ScopeItemGuid"/>
+                    </Key>
+                    <Property Name="ScopeItemGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Scope Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ProjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeObjectGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ScopeItemType" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Scope Item Type" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ParentScopeItemGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="GUID" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Visibility" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Visibility" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Active" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Active" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="LevelOfStandard" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Level of standard" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="ParentScopeItemID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Scope Item ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="FlagBasic" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Boolean Variable (X = True, - = False, Space = Unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="BasicDescription" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="BasicLongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Long text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="CHDATE" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Changed on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <NavigationProperty Name="toSCOPEITEMLIST" Relationship="SLO.BP_SRV.SCOPEITEMASSToSCOPEITEMLIST" FromRole="FromRole_SCOPEITEMASSToSCOPEITEMLIST" ToRole="ToRole_SCOPEITEMASSToSCOPEITEMLIST"/>
+                    <NavigationProperty Name="toSCOPEITEMASSLIST" Relationship="SLO.BP_SRV.SCOPEITEMASSToSCOPEITEMASSLIST" FromRole="FromRole_SCOPEITEMASSToSCOPEITEMASSLIST" ToRole="ToRole_SCOPEITEMASSToSCOPEITEMASSLIST"/>
+                </EntityType>
+                <EntityType Name="LIVETIMESTATUS" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="LivetimeStatus"/>
+                    </Key>
+                    <Property Name="LivetimeStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Livetime Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                    <Property Name="FlagEmptyRec" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Boolean Variable (X = True, - = False, Space = Unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                </EntityType>
+                <Association Name="SCOPEITEMToSCOPEITEMLIST" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCOPEITEM" Multiplicity="1" Role="FromRole_SCOPEITEMToSCOPEITEMLIST"/>
+                    <End Type="SLO.BP_SRV.SCOPEITEMLIST" Multiplicity="*" Role="ToRole_SCOPEITEMToSCOPEITEMLIST"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCOPEITEMToSCOPEITEMLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCOPEITEMToSCOPEITEMLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="OBJECTToSCOPEOBJECT" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="1" Role="FromRole_OBJECTToSCOPEOBJECT"/>
+                    <End Type="SLO.BP_SRV.SCOPEOBJECT" Multiplicity="*" Role="ToRole_OBJECTToSCOPEOBJECT"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_OBJECTToSCOPEOBJECT">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_OBJECTToSCOPEOBJECT">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="OBJECTToSCANRUN" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="1" Role="FromRole_OBJECTToSCANRUN"/>
+                    <End Type="SLO.BP_SRV.SCANRUN" Multiplicity="*" Role="ToRole_OBJECTToSCANRUN"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_OBJECTToSCANRUN">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_OBJECTToSCANRUN">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="OBJECTToOBJECTTABLE" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="1" Role="FromRole_OBJECTToOBJECTTABLE"/>
+                    <End Type="SLO.BP_SRV.OBJECTTABLE" Multiplicity="*" Role="ToRole_OBJECTToOBJECTTABLE"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_OBJECTToOBJECTTABLE">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_OBJECTToOBJECTTABLE">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="OBJECTToSCOPEITEM" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="1" Role="FromRole_OBJECTToSCOPEITEM"/>
+                    <End Type="SLO.BP_SRV.SCOPEITEM" Multiplicity="*" Role="ToRole_OBJECTToSCOPEITEM"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_OBJECTToSCOPEITEM">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_OBJECTToSCOPEITEM">
+                            <PropertyRef Name="ObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SCANRUNToSCANRESULT" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCANRUN" Multiplicity="1" Role="FromRole_SCANRUNToSCANRESULT"/>
+                    <End Type="SLO.BP_SRV.SCANRESULT" Multiplicity="*" Role="ToRole_SCANRUNToSCANRESULT"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCANRUNToSCANRESULT">
+                            <PropertyRef Name="ScanRunGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCANRUNToSCANRESULT">
+                            <PropertyRef Name="ScanRunGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="NODEToOBJECT" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.NODE" Multiplicity="1" Role="FromRole_NODEToOBJECT"/>
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="0..1" Role="ToRole_NODEToOBJECT"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_NODEToOBJECT">
+                            <PropertyRef Name="ID"/>
+                        </Principal>
+                        <Dependent Role="ToRole_NODEToOBJECT">
+                            <PropertyRef Name="NodeKey"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="NODEToOBJECTDETAIL" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.NODE" Multiplicity="1" Role="FromRole_NODEToOBJECTDETAIL"/>
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="0..1" Role="ToRole_NODEToOBJECTDETAIL"/>
+                </Association>
+                <Association Name="SCOPEOBJECTToLOADMETHOD" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCOPEOBJECT" Multiplicity="1" Role="FromRole_SCOPEOBJECTToLOADMETHOD"/>
+                    <End Type="SLO.BP_SRV.SCOPEOBJLOADMETHOD" Multiplicity="*" Role="ToRole_SCOPEOBJECTToLOADMETHOD"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCOPEOBJECTToLOADMETHOD">
+                            <PropertyRef Name="ScopeObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCOPEOBJECTToLOADMETHOD">
+                            <PropertyRef Name="ScopeObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SCOPEOBJECTToSCOPEITEMASSIGN" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCOPEOBJECT" Multiplicity="1" Role="FromRole_SCOPEOBJECTToSCOPEITEMASSIGN"/>
+                    <End Type="SLO.BP_SRV.SCOPEITEMASSIGN" Multiplicity="*" Role="ToRole_SCOPEOBJECTToSCOPEITEMASSIGN"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCOPEOBJECTToSCOPEITEMASSIGN">
+                            <PropertyRef Name="ScopeObjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCOPEOBJECTToSCOPEITEMASSIGN">
+                            <PropertyRef Name="ScopeObjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="PROJECTToLIST" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.PROJECT" Multiplicity="1" Role="FromRole_PROJECTToLIST"/>
+                    <End Type="SLO.BP_SRV.LIST" Multiplicity="*" Role="ToRole_PROJECTToLIST"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_PROJECTToLIST">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_PROJECTToLIST">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="PROJECTToNODE" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.PROJECT" Multiplicity="1" Role="FromRole_PROJECTToNODE"/>
+                    <End Type="SLO.BP_SRV.NODE" Multiplicity="*" Role="ToRole_PROJECTToNODE"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_PROJECTToNODE">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_PROJECTToNODE">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="PROJECTToOBJECT" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.PROJECT" Multiplicity="1" Role="FromRole_PROJECTToOBJECT"/>
+                    <End Type="SLO.BP_SRV.OBJECT" Multiplicity="*" Role="ToRole_PROJECTToOBJECT"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_PROJECTToOBJECT">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_PROJECTToOBJECT">
+                            <PropertyRef Name="ProjectGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SELREULESToSELRULESDETAIL" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SELECTRULES" Multiplicity="1" Role="FromRole_SELREULESToSELRULESDETAIL"/>
+                    <End Type="SLO.BP_SRV.SELECTRULESDETAIL" Multiplicity="1" Role="ToRole_SELREULESToSELRULESDETAIL"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SELREULESToSELRULESDETAIL">
+                            <PropertyRef Name="SelRuleID"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SELREULESToSELRULESDETAIL">
+                            <PropertyRef Name="SelRuleID"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="LISTToLISTLINE" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.LIST" Multiplicity="1" Role="FromRole_LISTToLISTLINE"/>
+                    <End Type="SLO.BP_SRV.LISTLINE" Multiplicity="*" Role="ToRole_LISTToLISTLINE"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_LISTToLISTLINE">
+                            <PropertyRef Name="ListGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_LISTToLISTLINE">
+                            <PropertyRef Name="ListGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SCOPEITEMASSToSCOPEITEMASSLIST" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCOPEITEMASSIGN" Multiplicity="1" Role="FromRole_SCOPEITEMASSToSCOPEITEMASSLIST"/>
+                    <End Type="SLO.BP_SRV.SCOPEITEMASSLIST" Multiplicity="*" Role="ToRole_SCOPEITEMASSToSCOPEITEMASSLIST"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCOPEITEMASSToSCOPEITEMASSLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCOPEITEMASSToSCOPEITEMASSLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <Association Name="SCOPEITEMASSToSCOPEITEMLIST" sap:content-version="1">
+                    <End Type="SLO.BP_SRV.SCOPEITEMASSIGN" Multiplicity="1" Role="FromRole_SCOPEITEMASSToSCOPEITEMLIST"/>
+                    <End Type="SLO.BP_SRV.SCOPEITEMLIST" Multiplicity="*" Role="ToRole_SCOPEITEMASSToSCOPEITEMLIST"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_SCOPEITEMASSToSCOPEITEMLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Principal>
+                        <Dependent Role="ToRole_SCOPEITEMASSToSCOPEITEMLIST">
+                            <PropertyRef Name="ScopeItemGuid"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <EntityContainer Name="SLO_BP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                    <EntitySet Name="SCOPEOBJECTSET" EntityType="SLO.BP_SRV.SCOPEOBJECT" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="LISTSET" EntityType="SLO.BP_SRV.LIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SELECTRULESSET" EntityType="SLO.BP_SRV.SELECTRULES" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SELECTRULESDETAILSET" EntityType="SLO.BP_SRV.SELECTRULESDETAIL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="LOADMETHODSET" EntityType="SLO.BP_SRV.LOADMETHOD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEOBJLOADMETHODSET" EntityType="SLO.BP_SRV.SCOPEOBJLOADMETHOD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCANFORMATSET" EntityType="SLO.BP_SRV.SCANFORMAT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEITEMASSLISTSET" EntityType="SLO.BP_SRV.SCOPEITEMASSLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="LISTLINESET" EntityType="SLO.BP_SRV.LISTLINE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="OBJECTSET" EntityType="SLO.BP_SRV.OBJECT" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="PROJECTSET" EntityType="SLO.BP_SRV.PROJECT" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEITEMSET" EntityType="SLO.BP_SRV.SCOPEITEM" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="NODESET" EntityType="SLO.BP_SRV.NODE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="OBJECTTABLESET" EntityType="SLO.BP_SRV.OBJECTTABLE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="OBJECTTABTYPESET" EntityType="SLO.BP_SRV.OBJECTTABTYPE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEITEMLISTSET" EntityType="SLO.BP_SRV.SCOPEITEMLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCANRUNSET" EntityType="SLO.BP_SRV.SCANRUN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCANRESULTSET" EntityType="SLO.BP_SRV.SCANRESULT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="OBJECTSCANSET" EntityType="SLO.BP_SRV.OBJECTSCAN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEOBJECTACTIVESET" EntityType="SLO.BP_SRV.SCOPEOBJECTACTIVE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="SCOPEITEMASSIGNSET" EntityType="SLO.BP_SRV.SCOPEITEMASSIGN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <EntitySet Name="LIVETIMESTATUSSET" EntityType="SLO.BP_SRV.LIVETIMESTATUS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                    <AssociationSet Name="NODEToOBJECTDETAILSet" Association="SLO.BP_SRV.NODEToOBJECTDETAIL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="NODESET" Role="FromRole_NODEToOBJECTDETAIL"/>
+                        <End EntitySet="OBJECTSET" Role="ToRole_NODEToOBJECTDETAIL"/>
+                    </AssociationSet>
+                    <AssociationSet Name="OBJECTToSCOPEITEMSet" Association="SLO.BP_SRV.OBJECTToSCOPEITEM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="OBJECTSET" Role="FromRole_OBJECTToSCOPEITEM"/>
+                        <End EntitySet="SCOPEITEMSET" Role="ToRole_OBJECTToSCOPEITEM"/>
+                    </AssociationSet>
+                    <AssociationSet Name="NODEToOBJECTSet" Association="SLO.BP_SRV.NODEToOBJECT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="NODESET" Role="FromRole_NODEToOBJECT"/>
+                        <End EntitySet="OBJECTSET" Role="ToRole_NODEToOBJECT"/>
+                    </AssociationSet>
+                    <AssociationSet Name="OBJECTToOBJECTTABLESet" Association="SLO.BP_SRV.OBJECTToOBJECTTABLE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="OBJECTSET" Role="FromRole_OBJECTToOBJECTTABLE"/>
+                        <End EntitySet="OBJECTTABLESET" Role="ToRole_OBJECTToOBJECTTABLE"/>
+                    </AssociationSet>
+                    <AssociationSet Name="PROJECTToLISTSet" Association="SLO.BP_SRV.PROJECTToLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="PROJECTSET" Role="FromRole_PROJECTToLIST"/>
+                        <End EntitySet="LISTSET" Role="ToRole_PROJECTToLIST"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCOPEITEMASSToSCOPEITEMASSLISTSET" Association="SLO.BP_SRV.SCOPEITEMASSToSCOPEITEMASSLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCOPEITEMASSIGNSET" Role="FromRole_SCOPEITEMASSToSCOPEITEMASSLIST"/>
+                        <End EntitySet="SCOPEITEMASSLISTSET" Role="ToRole_SCOPEITEMASSToSCOPEITEMASSLIST"/>
+                    </AssociationSet>
+                    <AssociationSet Name="PROJECTToOBJECTSet" Association="SLO.BP_SRV.PROJECTToOBJECT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="PROJECTSET" Role="FromRole_PROJECTToOBJECT"/>
+                        <End EntitySet="OBJECTSET" Role="ToRole_PROJECTToOBJECT"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCANRUNToSCANRESULTSET" Association="SLO.BP_SRV.SCANRUNToSCANRESULT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCANRUNSET" Role="FromRole_SCANRUNToSCANRESULT"/>
+                        <End EntitySet="SCANRESULTSET" Role="ToRole_SCANRUNToSCANRESULT"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCANRUNToSCANRESULTSet" Association="SLO.BP_SRV.SCANRUNToSCANRESULT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCANRUNSET" Role="FromRole_SCANRUNToSCANRESULT"/>
+                        <End EntitySet="SCANRESULTSET" Role="ToRole_SCANRUNToSCANRESULT"/>
+                    </AssociationSet>
+                    <AssociationSet Name="OBJECTToSCANRUNSET" Association="SLO.BP_SRV.OBJECTToSCANRUN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="OBJECTSET" Role="FromRole_OBJECTToSCANRUN"/>
+                        <End EntitySet="SCANRUNSET" Role="ToRole_OBJECTToSCANRUN"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCOPEOBJECTToSCOPEITEMASSIGNSET" Association="SLO.BP_SRV.SCOPEOBJECTToSCOPEITEMASSIGN" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCOPEOBJECTSET" Role="FromRole_SCOPEOBJECTToSCOPEITEMASSIGN"/>
+                        <End EntitySet="SCOPEITEMASSIGNSET" Role="ToRole_SCOPEOBJECTToSCOPEITEMASSIGN"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCOPEITEMToSCOPEITEMLISTSet" Association="SLO.BP_SRV.SCOPEITEMToSCOPEITEMLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCOPEITEMSET" Role="FromRole_SCOPEITEMToSCOPEITEMLIST"/>
+                        <End EntitySet="SCOPEITEMLISTSET" Role="ToRole_SCOPEITEMToSCOPEITEMLIST"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCOPEITEMASSToSCOPEITEMLISTSET" Association="SLO.BP_SRV.SCOPEITEMASSToSCOPEITEMLIST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCOPEITEMASSIGNSET" Role="FromRole_SCOPEITEMASSToSCOPEITEMLIST"/>
+                        <End EntitySet="SCOPEITEMLISTSET" Role="ToRole_SCOPEITEMASSToSCOPEITEMLIST"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SCOPEOBJECTToLOADMETHODSet" Association="SLO.BP_SRV.SCOPEOBJECTToLOADMETHOD" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SCOPEOBJECTSET" Role="FromRole_SCOPEOBJECTToLOADMETHOD"/>
+                        <End EntitySet="SCOPEOBJLOADMETHODSET" Role="ToRole_SCOPEOBJECTToLOADMETHOD"/>
+                    </AssociationSet>
+                    <AssociationSet Name="OBJECTToSCOPEOBJECTSet" Association="SLO.BP_SRV.OBJECTToSCOPEOBJECT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="OBJECTSET" Role="FromRole_OBJECTToSCOPEOBJECT"/>
+                        <End EntitySet="SCOPEOBJECTSET" Role="ToRole_OBJECTToSCOPEOBJECT"/>
+                    </AssociationSet>
+                    <AssociationSet Name="SELREULESToSELRULESDETAILSet" Association="SLO.BP_SRV.SELREULESToSELRULESDETAIL" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="SELECTRULESSET" Role="FromRole_SELREULESToSELRULESDETAIL"/>
+                        <End EntitySet="SELECTRULESDETAILSET" Role="ToRole_SELREULESToSELRULESDETAIL"/>
+                    </AssociationSet>
+                    <AssociationSet Name="PROJECTToNODESET" Association="SLO.BP_SRV.PROJECTToNODE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="PROJECTSET" Role="FromRole_PROJECTToNODE"/>
+                        <End EntitySet="NODESET" Role="ToRole_PROJECTToNODE"/>
+                    </AssociationSet>
+                    <AssociationSet Name="LISTToLISTLINESET" Association="SLO.BP_SRV.LISTToLISTLINE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="LISTSET" Role="FromRole_LISTToLISTLINE"/>
+                        <End EntitySet="LISTLINESET" Role="ToRole_LISTToLISTLINE"/>
+                    </AssociationSet>
+                </EntityContainer>
+                <atom:link rel="self" href="http://p102088v7:8070/sap/opu/odata/slo/BP_SRV/$metadata"
+                    xmlns:atom="http://www.w3.org/2005/Atom"/>
+                    <atom:link rel="latest-version" href="http://p102088v7:8070/sap/opu/odata/slo/BP_SRV/$metadata"
+                        xmlns:atom="http://www.w3.org/2005/Atom"/>
+                    </Schema>
+                </edmx:DataServices>
+            </edmx:Edmx>

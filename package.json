@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "@sap/dev-cap-tools": "^1.31.0",
     "@sap/eslint-plugin-cds": "^3",
     "@sap/ux-specification": "^1.108.33",
@@ -47,6 +48,16 @@
         },
         "[production]": {
           "kind": "xsuaa"
+        }
+      },
+      "SLOBP_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/SLOBP_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "KG7_DATAX",
+            "path": "/sap/opu/odata/slo/BP_SRV"
+          }
         }
       }
     },
