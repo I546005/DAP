@@ -43,11 +43,13 @@ resources:
     parameters:
       service: destination
       service-plan: lite
+
   - name: DAP-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
+      
   - name: DAP-auth
     type: org.cloudfoundry.managed-service
     parameters:

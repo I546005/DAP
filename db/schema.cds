@@ -1,3 +1,4 @@
+using { T_SLO_DATAX_SRV } from '../srv/external/T_SLO_DATAX_SRV.cds'; 
 namespace DAP_NS;
 
 entity CustomerInfo

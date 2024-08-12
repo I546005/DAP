@@ -59,6 +59,16 @@
             "path": "/sap/opu/odata/slo/BP_SRV"
           }
         }
+      },
+      "T_SLO_DATAX_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/T_SLO_DATAX_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "KG7_DATAX",
+            "path": "/sap/opu/odata/sap/SLO_DATAX_SRV"
+          }
+        }
       }
     },
     "features": {
